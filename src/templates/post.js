@@ -22,11 +22,10 @@ export const BlogPostTemplate = ({
             </h1>
             <div dangerouslySetInnerHTML={{ __html: content }} />
             <div style={{ marginTop: `4rem` }}>
-              <p>
-                {date} - posted by{' '}
-                <Link to={`/author/${author.slug}`}>{author.name}</Link>
-              </p>
-              {categories && categories.length ? (
+              <p>{date}</p>
+              {categories &&
+              categories.length &&
+              categories.includes('Uncategorized') ? (
                 <div>
                   <h4>Categories</h4>
                   <ul className="taglist">
