@@ -10,18 +10,22 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
           <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">{title}</h1>
+            <h1 className="has-text-weight-bold is-size-3">{title}</h1>
           </div>
           {posts.map(({ node: post }) => (
             <div
               className="content"
-              style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
+              style={{
+                borderBottom: '1px solid #eaecee',
+                paddingBottom: '30px',
+              }}
               key={post.id}
             >
               <p>
-                <Link className="has-text-primary" to={post.slug}>
+                <Link className="has-text-primary is-size-3" to={post.slug}>
                   {post.title}
                 </Link>
+                <br />
                 <span> &bull; </span>
                 <small>{post.date}</small>
               </p>
@@ -31,9 +35,14 @@ export default class IndexPage extends React.Component {
                     __html: post.excerpt.replace(/<p class="link-more.*/, ''),
                   }}
                 />
-                <Link className="button is-small" to={post.slug}>
-                  More ...
-                </Link>
+                <div style={{ marginTop: '10px' }}>
+                  <Link
+                    className="button is-primary is-outlined"
+                    to={post.slug}
+                  >
+                    More ...
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
