@@ -55,7 +55,6 @@ module.exports = {
                     date: edge.node.date,
                     url: site.siteMetadata.siteUrl + '/' + edge.node.slug,
                     guid: site.siteMetadata.siteUrl + '/' + edge.node.slug,
-                    author: edge.node.author.name,
                     custom_elements: [{ 'content:encoded': edge.node.content }],
                   }
                 )
