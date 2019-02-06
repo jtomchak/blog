@@ -17,9 +17,10 @@ export const BlogPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
+            <h1
+              className="title is-size-2 has-text-weight-bold is-bold-light"
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
             <div dangerouslySetInnerHTML={{ __html: content }} />
             <div style={{ marginTop: `4rem` }}>
               <p>{date}</p>
@@ -65,11 +66,17 @@ BlogPostTemplate.propTypes = {
 }
 
 const BlogPost = ({ data }) => {
-  const { wordpressPost: post } = data
+  const { wordpressPost: post, site: site } = data
 
   return (
     <Layout>
-      <Helmet title={`${post.title} | Blog`} />
+      <Helmet title={`${post.title} | Blog`}>
+        <meta name={`twitter:title`} content={`${post.title}`} />
+        <meta
+          name={`twitter:url`}
+          content={`${site.siteMetadata.siteUrl}/${post.slug}`}
+        />
+      </Helmet>
       <BlogPostTemplate
         content={post.content}
         categories={post.categories}
@@ -99,6 +106,11 @@ export const pageQuery = graphql`
     title
   }
   query BlogPostByID($id: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     wordpressPost(id: { eq: $id }) {
       id
       title
