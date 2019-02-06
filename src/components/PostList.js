@@ -23,7 +23,7 @@ export default class IndexPage extends React.Component {
             >
               <p>
                 <Link className="has-text-primary is-size-3" to={post.slug}>
-                  {post.title}
+                  <div dangerouslySetInnerHTML={{ __html: post.title }} />
                 </Link>
                 <br />
                 <span> &bull; </span>
