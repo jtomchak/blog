@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 export const BlogPostTemplate = ({
   content,
@@ -70,13 +71,12 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout>
-      <Helmet title={`${post.title} | Blog`}>
-        <meta name={`twitter:title`} content={`${post.title}`} />
-        <meta
-          name={`twitter:url`}
-          content={`${site.siteMetadata.siteUrl}/${post.slug}`}
-        />
-      </Helmet>
+      <SEO
+        title={post.title}
+        description={post.description || post.excerpt || 'nothin’'}
+        pathname={post.slug}
+        article
+      />
       <BlogPostTemplate
         content={post.content}
         categories={post.categories}
