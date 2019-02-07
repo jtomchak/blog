@@ -23,7 +23,7 @@ export const BlogPostTemplate = ({
               dangerouslySetInnerHTML={{ __html: title }}
             />
             <div dangerouslySetInnerHTML={{ __html: content }} />
-            <div style={{ marginTop: `4rem` }}>
+            <div className="has-text-grey-light" style={{ marginTop: `4rem` }}>
               <p>{date}</p>
               {categories &&
               categories.length &&

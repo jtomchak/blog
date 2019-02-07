@@ -22,9 +22,10 @@ export default class IndexPage extends React.Component {
               key={post.id}
             >
               <p>
-                <Link className="has-text-primary is-size-3" to={post.slug}>
-                  <div dangerouslySetInnerHTML={{ __html: post.title }} />
-                </Link>
+                <span
+                  className="has-text-primary is-size-3"
+                  dangerouslySetInnerHTML={{ __html: post.title }}
+                />
                 <br />
                 <span> &bull; </span>
                 <small>{post.date}</small>
