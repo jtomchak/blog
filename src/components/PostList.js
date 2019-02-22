@@ -5,7 +5,6 @@ import { Link, graphql } from 'gatsby'
 export default class IndexPage extends React.Component {
   render() {
     const { posts, title } = this.props
-
     return (
       <section className="section">
         <div className="container">
@@ -39,7 +38,7 @@ export default class IndexPage extends React.Component {
                 <div style={{ marginTop: '10px' }}>
                   <Link
                     className="button is-primary is-outlined"
-                    to={post.slug}
+                    to={`${post.year}/${post.month}/${post.slug}`}
                   >
                     More ...
                   </Link>
@@ -71,6 +70,8 @@ export const pageQuery = graphql`
       }
     }
     date(formatString: "MMMM DD, YYYY")
+    month: date(formatString: "MM")
+    year: date(formatString: "YYYY")
     slug
   }
 `

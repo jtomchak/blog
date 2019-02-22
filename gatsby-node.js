@@ -60,6 +60,9 @@ exports.createPages = ({ actions, graphql }) => {
                 id
                 slug
                 status
+                date
+                month: date(formatString: "MM")
+                year: date(formatString: "YYYY")
               }
             }
           }
@@ -86,7 +89,7 @@ exports.createPages = ({ actions, graphql }) => {
       _.each(posts, ({ node: post }) => {
         // Create the Gatsby page for this WordPress post
         createPage({
-          path: `/${post.slug}/`,
+          path: `${post.year}/${post.month}/${post.slug}/`,
           component: postTemplate,
           context: {
             id: post.id,
