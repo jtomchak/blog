@@ -42,6 +42,13 @@ $link: $fireball-gray-invert;
 $body-color: $fireball-gray-invert;
 $content-heading-color: $fireball-header;
 $content-blockquote-background-color: #38393c;
+
+// Disable the widescreen breakpoint
+$widescreen-enabled: false;
+
+// Disable the fullhd breakpoint
+$fullhd-enabled: false;
+
 .content {
   blockquote {
     margin: 0 1em 0 0.25em;
@@ -101,6 +108,13 @@ $a-tags-hover: 'a:active, a:hover';
 }
 #{$a-tags-hover} {
   background-color: $light-grey;
+}
+
+a.button.is-text {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(253, 246, 246);
+  text-decoration: underline;
 }
 
 @import '../../node_modules/bulma/bulma';

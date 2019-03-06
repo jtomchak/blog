@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import PostList from '../components/PostList'
+import MainPostList from '../components/MainPostList'
 import Pagination from '../components/Pagination'
 
 export default class IndexPage extends React.Component {
@@ -12,7 +12,7 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <PostList posts={posts} title="Latest posts" />
+        <MainPostList posts={posts} title="Recently" />
         <Pagination pageContext={pageContext} pathPrefix="/" />
       </Layout>
     )
@@ -40,7 +40,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          ...PostListFields
+          ...MainPostListFields
         }
       }
     }

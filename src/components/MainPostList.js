@@ -25,24 +25,20 @@ export default class IndexPage extends React.Component {
                   className="has-text-primary is-size-3"
                   dangerouslySetInnerHTML={{ __html: post.title }}
                 />
-                <br />
-                <span> &bull; </span>
-                <small>{post.date}</small>
               </p>
               <div>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: post.excerpt.replace(/<p class="link-more.*/, ''),
+                    __html: post.content,
                   }}
                 />
-                <div style={{ marginTop: '10px' }}>
-                  <Link
-                    className="button is-primary is-outlined"
-                    to={`${post.year}/${post.month}/${post.slug}`}
-                  >
-                    More ...
-                  </Link>
-                </div>
+                <div style={{ marginTop: '10px' }} />
+                <Link
+                  className="button is-text is-small is-outlined"
+                  to={`${post.year}/${post.month}/${post.slug}`}
+                >
+                  {post.date}
+                </Link>
               </div>
             </div>
           ))}
@@ -58,10 +54,11 @@ IndexPage.propTypes = {
 }
 
 export const pageQuery = graphql`
-  fragment PostListFields on wordpress__POST {
+  fragment MainPostListFields on wordpress__POST {
     id
     title
     excerpt
+    content
     author {
       name
       slug
@@ -69,7 +66,7 @@ export const pageQuery = graphql`
         wordpress_48
       }
     }
-    date(formatString: "MMMM DD, YYYY")
+    date(formatString: "MMMM YYYY")
     month: date(formatString: "MM")
     year: date(formatString: "YYYY")
     slug
