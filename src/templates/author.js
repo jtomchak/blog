@@ -38,7 +38,7 @@ export const pageQuery = graphql`
     wordpressWpUsers(id: { eq: $id }) {
       name
       authored_wordpress__POST {
-        ...PostListFields
+        ...MainPostListFields
       }
     }
   }

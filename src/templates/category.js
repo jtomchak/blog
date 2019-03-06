@@ -34,7 +34,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          ...PostListFields
+          ...MainPostListFields
         }
       }
     }
