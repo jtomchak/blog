@@ -12,14 +12,7 @@ export default class IndexPage extends React.Component {
             <h1 className="has-text-weight-bold is-size-3">{title}</h1>
           </div>
           {posts.map(({ node: post }) => (
-            <div
-              className="content"
-              style={{
-                borderBottom: '1px solid #eaecee',
-                paddingBottom: '30px',
-              }}
-              key={post.id}
-            >
+            <div className="content" key={post.id}>
               <p>
                 <span
                   className="has-text-primary is-size-3"
