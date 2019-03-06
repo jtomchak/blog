@@ -25,9 +25,6 @@ export default class IndexPage extends React.Component {
                   className="has-text-primary is-size-3"
                   dangerouslySetInnerHTML={{ __html: post.title }}
                 />
-                <br />
-                <span> &bull; </span>
-                <small>{post.date}</small>
               </p>
               <div>
                 <div
@@ -36,6 +33,12 @@ export default class IndexPage extends React.Component {
                   }}
                 />
                 <div style={{ marginTop: '10px' }} />
+                <Link
+                  className="button is-text is-small is-outlined"
+                  to={`${post.year}/${post.month}/${post.slug}`}
+                >
+                  {post.date}
+                </Link>
               </div>
             </div>
           ))}
@@ -63,7 +66,7 @@ export const pageQuery = graphql`
         wordpress_48
       }
     }
-    date(formatString: "MMMM DD, YYYY")
+    date(formatString: "MMMM YYYY")
     month: date(formatString: "MM")
     year: date(formatString: "YYYY")
     slug

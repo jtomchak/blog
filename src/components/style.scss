@@ -110,4 +110,11 @@ $a-tags-hover: 'a:active, a:hover';
   background-color: $light-grey;
 }
 
+a.button.is-text {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(253, 246, 246);
+  text-decoration: underline;
+}
+
 @import '../../node_modules/bulma/bulma';
