@@ -11,7 +11,6 @@ export const BlogPostTemplate = ({
   tags,
   title,
   date,
-  author,
 }) => {
   return (
     <section className="section">
@@ -123,10 +122,6 @@ export const pageQuery = graphql`
         slug
       }
       tags {
-        name
-        slug
-      }
-      author {
         name
         slug
       }
