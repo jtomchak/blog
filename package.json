@@ -2,7 +2,7 @@
   "name": "jesse-tomchak-blog",
   "description": "Thoughts and Topics",
   "version": "0.1.0",
-  "author": "GatsbyCentral.com",
+  "author": "jessetomchak.com",
   "dependencies": {
     "bulma": "^0.7.0",
     "gatsby": "^2.0.0",

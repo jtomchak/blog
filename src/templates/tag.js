@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import PostList from '../components/PostList'
+import MainPostList from '../components/MainPostList'
 
 const Tag = props => {
   const { data, pageContext } = props
@@ -16,7 +16,7 @@ const Tag = props => {
   return (
     <Layout>
       <Helmet title={`${tag} | ${siteTitle}`} />
-      <PostList posts={posts} title={title} />
+      <MainPostList posts={posts} title={title} />
     </Layout>
   )
 }
@@ -34,7 +34,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
-          ...PostListFields
+          ...MainPostListFields
         }
       }
     }

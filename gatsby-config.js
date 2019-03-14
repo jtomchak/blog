@@ -78,10 +78,6 @@ module.exports = {
                     slug
                     date
                     title
-                    author {
-                      id
-                      name
-                    }
                   }
                 }
               }

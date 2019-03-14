@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import PostList from '../components/PostList'
+import MainPostList from '../components/MainPostList'
 
 const Author = props => {
   const { data } = props
@@ -21,7 +21,7 @@ const Author = props => {
   return (
     <Layout>
       <Helmet title={`${name} | ${siteTitle}`} />
-      <PostList posts={posts} title={title} />
+      <MainPostList posts={posts} title={title} />
     </Layout>
   )
 }
@@ -38,7 +38,7 @@ export const pageQuery = graphql`
     wordpressWpUsers(id: { eq: $id }) {
       name
       authored_wordpress__POST {
-        ...PostListFields
+        ...MainPostListFields
       }
     }
   }

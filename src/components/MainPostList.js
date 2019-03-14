@@ -52,13 +52,6 @@ export const pageQuery = graphql`
     title
     excerpt
     content
-    author {
-      name
-      slug
-      avatar_urls {
-        wordpress_48
-      }
-    }
     date(formatString: "MMMM YYYY")
     month: date(formatString: "MM")
     year: date(formatString: "YYYY")
