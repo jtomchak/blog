@@ -58,7 +58,9 @@ module.exports = {
                   {
                     title: edge.node.title,
                     date: edge.node.date,
-                    url: site.siteMetadata.siteUrl + '/' + edge.node.slug,
+                    url: `${site.siteMetadata.siteUrl}/${edge.node.year}/${
+                      edge.node.month
+                    }/${edge.node.slug}`,
                     guid: site.siteMetadata.siteUrl + '/' + edge.node.slug,
                     custom_elements: [{ 'content:encoded': edge.node.content }],
                   }
@@ -78,6 +80,9 @@ module.exports = {
                     slug
                     date
                     title
+                    date
+                    month: date(formatString: "MM")
+                    year: date(formatString: "YYYY")
                   }
                 }
               }
